@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/images/offest.png</file>
+        <file>res/images/clock.svg</file>
+        <file>res/images/butter_down.png</file>
+        <file>res/images/butter_up.png</file>
+        <file>res/images/China.jpg</file>
+        <file>res/images/zoomin.png</file>
+        <file>res/images/zoomout.png</file>
+        <file>res/images/star.png</file>
+        <file>res/images/image.png</file>
+    </qresource>
+</RCC>
