@@ -25,6 +25,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+include(page01/page01.pri)
+include(page02/page02.pri)
 include(page06/page06.pri)
 include(page07/page07.pri)
 
