@@ -27,8 +27,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 include(page01/page01.pri)
 include(page02/page02.pri)
+include(page03/page03.pri)
 include(page06/page06.pri)
 include(page07/page07.pri)
+include(page08/page08.pri)
 
 RESOURCES += \
     resource.qrc

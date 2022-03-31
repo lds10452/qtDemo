@@ -1,0 +1,2 @@
+include(ch301_splitterWidget/ch301_splitterWidget.pri)
+include(ch302_dockWindow/ch302_dockWindow.pri)
