@@ -15,7 +15,8 @@ SplitterWidget::SplitterWidget(QWidget *parent) : QWidget(parent)
     QTextEdit *textBottom=new QTextEdit(tr("bottom textEdit"),splitterRight);
     textBottom->setAlignment(Qt::AlignCenter);
     splitterMain->setStretchFactor(1,1);
-    //对话框大小改变时控件序号为1的splitterRight为可伸缩，第二个参数大于0表示可伸缩
+    //对话框大小改变时控件序号为1的splitterRight为可伸缩，
+    //第二个参数大于0表示可伸缩,大小表示前后控件的伸缩比
     QHBoxLayout *lyout=new QHBoxLayout(this);
     lyout->addWidget(splitterMain);
 }
