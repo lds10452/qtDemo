@@ -1,0 +1,1 @@
+include(ch401_dialogExample/ch401_dialogExample.pri)

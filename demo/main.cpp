@@ -6,6 +6,7 @@
 #include "page03/ch302_dockWindow/dockwindow.h"
 #include "page03/ch303_stackDialog/stackdialog.h"
 #include "page03/ch304_userInfo/useinfosplitter.h"
+#include "page04/ch401_dialogExample/dialogexample.h"
 #include "page06/ch601_geometry/geometry.h"
 #include "page06/ch602_paintEx/mainwidget.h"
 #include "page06/ch603_drawWidget/drawwindow.h"
@@ -27,7 +28,8 @@ int main(int argc, char *argv[])
     //m_pWgt=new SplitterWidget;//3
     //m_pWgt=new DockWindow;
     //m_pWgt=new StackDialog;
-    m_pWgt=new UseInfoSplitter;
+    //m_pWgt=new UseInfoSplitter;
+    m_pWgt=new DialogExample;//4
     //m_pWgt=new Geometry;//6
     //m_pWgt=new MainWidget;
     //m_pWgt=new DrawWindow;
