@@ -35,3 +35,4 @@ include(page08/page08.pri)
 
 RESOURCES += \
     resource.qrc
+

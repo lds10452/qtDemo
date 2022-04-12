@@ -9,5 +9,18 @@
         <file>res/images/zoomout.png</file>
         <file>res/images/star.png</file>
         <file>res/images/image.png</file>
+        <file>res/headPic/11.png</file>
+        <file>res/headPic/12.png</file>
+        <file>res/headPic/13.png</file>
+        <file>res/headPic/14.png</file>
+        <file>res/headPic/21.png</file>
+        <file>res/headPic/22.png</file>
+        <file>res/headPic/31.png</file>
+        <file>res/headPic/32.png</file>
+        <file>res/headPic/155.png</file>
+        <file>res/images/Qt.png</file>
+        <file>res/gif/orange.gif</file>
+        <file>res/images/1.jpg</file>
+        <file>res/images/icon.png</file>
     </qresource>
 </RCC>
