@@ -1,0 +1,1 @@
+include(ImgEditMainWindow/ImgEditMainWindow.pri)

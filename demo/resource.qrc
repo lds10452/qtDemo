@@ -22,5 +22,27 @@
         <file>res/gif/orange.gif</file>
         <file>res/images/1.jpg</file>
         <file>res/images/icon.png</file>
+        <file>res/file/bold.png</file>
+        <file>res/file/center.png</file>
+        <file>res/file/color.png</file>
+        <file>res/file/copy.png</file>
+        <file>res/file/cut.png</file>
+        <file>res/file/italic.png</file>
+        <file>res/file/justify.png</file>
+        <file>res/file/left.png</file>
+        <file>res/file/new.png</file>
+        <file>res/file/open.png</file>
+        <file>res/file/paste.png</file>
+        <file>res/file/printImage.png</file>
+        <file>res/file/printText.png</file>
+        <file>res/file/redo.png</file>
+        <file>res/file/right.png</file>
+        <file>res/file/rotate90.png</file>
+        <file>res/file/rotate180.png</file>
+        <file>res/file/rotate270.png</file>
+        <file>res/file/underline.png</file>
+        <file>res/file/undo.png</file>
+        <file>res/file/zoomin.png</file>
+        <file>res/file/zoomout.png</file>
     </qresource>
 </RCC>

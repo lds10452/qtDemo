@@ -10,6 +10,7 @@
 #include "page03/ch304_userInfo/useinfosplitter.h"
 #include "page04/ch401_dialogExample/dialogexample.h"
 #include "page04/ch402_otherWidget/otherdialog.h"
+#include "page05/ImgEditMainWindow/imgeditmainwindow.h"
 #include "page06/ch601_geometry/geometry.h"
 #include "page06/ch602_paintEx/mainwidget.h"
 #include "page06/ch603_drawWidget/drawwindow.h"
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
     label.setMovie(&mv);
     mv.start();
     splash.show();
-    for(int i=0;i<200;i++)
+    for(int i=0;i<100;i++)
     {
         a.processEvents();
         _sleep(1);
@@ -49,7 +50,8 @@ int main(int argc, char *argv[])
     //m_pWgt=new StackDialog;
     //m_pWgt=new UseInfoSplitter;
     //m_pWgt=new DialogExample;//4
-    m_pWgt=new OtherDialog;
+    //m_pWgt=new OtherDialog;
+    m_pWgt=new ImgEditMainWindow;//5
     //m_pWgt=new Geometry;//6
     //m_pWgt=new MainWidget;
     //m_pWgt=new DrawWindow;

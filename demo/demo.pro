@@ -1,6 +1,6 @@
 QT       += core gui
 QT+=svg
-
+QT       += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -29,6 +29,7 @@ include(page01/page01.pri)
 include(page02/page02.pri)
 include(page03/page03.pri)
 include(page04/page04.pri)
+include(page05/page05.pri)
 include(page06/page06.pri)
 include(page07/page07.pri)
 include(page08/page08.pri)
