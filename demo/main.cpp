@@ -21,6 +21,8 @@
 #include "page07/ch704_transform/transformwidget.h"
 #include "page08/ch801_dirModelEx/dirmodel.h"
 #include "page08/ch802_ModelEx/modelexwidget.h"
+#include "page08/ch803_viewEx/viewexmainwindow.h"
+#include "page08/ch804_delegate/delegatedialog.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
     label.setMovie(&mv);
     mv.start();
     splash.show();
-    for(int i=0;i<100;i++)
+    for(int i=0;i<50;i++)
     {
         a.processEvents();
         _sleep(1);
@@ -51,7 +53,7 @@ int main(int argc, char *argv[])
     //m_pWgt=new UseInfoSplitter;
     //m_pWgt=new DialogExample;//4
     //m_pWgt=new OtherDialog;
-    m_pWgt=new ImgEditMainWindow;//5
+    //m_pWgt=new ImgEditMainWindow;//5
     //m_pWgt=new Geometry;//6
     //m_pWgt=new MainWidget;
     //m_pWgt=new DrawWindow;
@@ -62,6 +64,8 @@ int main(int argc, char *argv[])
     //m_pWgt=new transFormWidget;
     //m_pWgt=new DirModel;//8
     //m_pWgt=new ModelExWidget;
+    //m_pWgt=new ViewExMainWindow;
+    m_pWgt=new DelegateDialog;
     m_pWgt->show();
     splash.finish(m_pWgt);
     return a.exec();
