@@ -44,5 +44,7 @@
         <file>res/file/undo.png</file>
         <file>res/file/zoomin.png</file>
         <file>res/file/zoomout.png</file>
+        <file>res/file/dir.png</file>
+        <file>res/file/file.png</file>
     </qresource>
 </RCC>

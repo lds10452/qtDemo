@@ -24,6 +24,7 @@
 #include "page08/ch803_viewEx/viewexmainwindow.h"
 #include "page08/ch804_delegate/delegatedialog.h"
 #include "page09/ch901_rwFile/rwfiledialog.h"
+#include "page09/ch902_fileInfo/fileinfodialog.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -67,7 +68,8 @@ int main(int argc, char *argv[])
     //m_pWgt=new ModelExWidget;
     //m_pWgt=new ViewExMainWindow;
     //m_pWgt=new DelegateDialog;
-    m_pWgt=new RwFileDialog;
+    //m_pWgt=new RwFileDialog;//9
+    m_pWgt=new fileInfoDialog;
     m_pWgt->show();
     splash.finish(m_pWgt);
     return a.exec();
