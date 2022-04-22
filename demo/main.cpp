@@ -25,6 +25,9 @@
 #include "page08/ch804_delegate/delegatedialog.h"
 #include "page09/ch901_rwFile/rwfiledialog.h"
 #include "page09/ch902_fileInfo/fileinfodialog.h"
+#include "page11/ch1101_mouseEvent/mouseeventmainwindow.h"
+#include "page11/ch1102_eventFilter/eventfilterdialog.h"
+#include "page11/ch1103_keyEvent/keyeventdialog.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -69,7 +72,11 @@ int main(int argc, char *argv[])
     //m_pWgt=new ViewExMainWindow;
     //m_pWgt=new DelegateDialog;
     //m_pWgt=new RwFileDialog;//9
-    m_pWgt=new fileInfoDialog;
+    //m_pWgt=new fileInfoDialog;
+    //m_pWgt=new mouseEventMainWindow;//11
+    //m_pWgt=new eventFilterDialog;
+    m_pWgt=new KeyEventDialog;
+
     m_pWgt->show();
     splash.finish(m_pWgt);
     return a.exec();

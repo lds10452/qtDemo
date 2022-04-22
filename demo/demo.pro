@@ -34,6 +34,7 @@ include(page06/page06.pri)
 include(page07/page07.pri)
 include(page08/page08.pri)
 include(page09/page09.pri)
+include(page11/page11.pri)
 
 RESOURCES += \
     resource.qrc
