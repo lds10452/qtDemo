@@ -1,0 +1,5 @@
+1.新建工程xxx.pro，在控件上添加相应语言的文本
+2.pro文件中添加：TRANSLATIONS = [path/]xxx.ts
+3.编译完成后，开始程序中找到Qt 5.14.2 (MinGW 7.3.0 32-bit)，执行命令：lupdate xxx.pro
+4.开始程序中找到Linguist 5.14.2 (MinGW 7.3.0 32-bit)，打开xxx.ts文件，选择要翻译的字符串，输入翻译后的文字，保存。
+5.文件->发布或者输入命令：lrelease xxx.pro，生成[path/]xxx.qm文件，程序中加入该文件。
