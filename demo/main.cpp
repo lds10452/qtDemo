@@ -28,6 +28,8 @@
 #include "page11/ch1101_mouseEvent/mouseeventmainwindow.h"
 #include "page11/ch1102_eventFilter/eventfilterdialog.h"
 #include "page11/ch1103_keyEvent/keyeventdialog.h"
+#include "page14/ch1401_multiLang/multilangwidget.h"
+#include "page14/ch1402_langSwitch/langswitchwidget.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -75,8 +77,9 @@ int main(int argc, char *argv[])
     //m_pWgt=new fileInfoDialog;
     //m_pWgt=new mouseEventMainWindow;//11
     //m_pWgt=new eventFilterDialog;
-    m_pWgt=new KeyEventDialog;
-
+    //m_pWgt=new KeyEventDialog;
+    //m_pWgt=new MultiLangWidget;//14
+    m_pWgt=new LangSwitchWidget;
     m_pWgt->show();
     splash.finish(m_pWgt);
     return a.exec();

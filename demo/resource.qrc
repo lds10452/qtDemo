@@ -47,5 +47,9 @@
         <file>res/file/dir.png</file>
         <file>res/file/file.png</file>
         <file>res/images/rab.png</file>
+        <file>res/langFile/MultiLangWidget.qm</file>
+        <file>res/langFile/lang_en.qm</file>
+        <file>res/langFile/lang_la.qm</file>
+        <file>res/langFile/lang_zh.qm</file>
     </qresource>
 </RCC>

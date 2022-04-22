@@ -35,7 +35,12 @@ include(page07/page07.pri)
 include(page08/page08.pri)
 include(page09/page09.pri)
 include(page11/page11.pri)
+include(page14/page14.pri)
 
 RESOURCES += \
     resource.qrc
 
+TRANSLATIONS=$$PWD/res/langFile/MultiLangWidget.ts \
+            $$PWD/res/langFile/lang_en.ts \
+            $$PWD/res/langFile/lang_zh.ts \
+            $$PWD/res/langFile/lang_la.ts \
