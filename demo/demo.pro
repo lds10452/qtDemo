@@ -1,5 +1,6 @@
 QT       += core gui
-QT+=svg
+QT       += svg
+QT       += testlib
 QT       += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -36,7 +37,7 @@ include(page08/page08.pri)
 include(page09/page09.pri)
 include(page11/page11.pri)
 include(page14/page14.pri)
-
+include(page15/page15.pri)
 RESOURCES += \
     resource.qrc
 
