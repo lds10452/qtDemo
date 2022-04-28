@@ -2,6 +2,8 @@ QT       += core gui
 QT       += svg
 QT       += testlib
 QT       += printsupport
+QT       +=sql
+QT       +=xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -36,6 +38,7 @@ include(page07/page07.pri)
 include(page08/page08.pri)
 include(page09/page09.pri)
 include(page11/page11.pri)
+include(page13/page13.pri)
 include(page14/page14.pri)
 include(page15/page15.pri)
 RESOURCES += \
