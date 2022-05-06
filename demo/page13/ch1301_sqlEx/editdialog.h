@@ -11,6 +11,7 @@
 
 class EditDialog : public QDialog
 {
+    Q_OBJECT
 public:
     EditDialog(QSqlRelationalTableModel *cars, QSqlTableModel *factory,QDomDocument details, QFile *output);
 private slots:

@@ -28,6 +28,7 @@
 #include "page11/ch1101_mouseEvent/mouseeventmainwindow.h"
 #include "page11/ch1102_eventFilter/eventfilterdialog.h"
 #include "page11/ch1103_keyEvent/keyeventdialog.h"
+#include "page12/ch1200_execDlg/execthreaddialog.h"
 #include "page13/ch1301_sqlEx/connectdialog.h"
 #include "page14/ch1401_multiLang/multilangwidget.h"
 #include "page14/ch1402_langSwitch/langswitchwidget.h"
@@ -81,7 +82,8 @@ int main(int argc, char *argv[])
     //m_pWgt=new mouseEventMainWindow;//11
     //m_pWgt=new eventFilterDialog;
     //m_pWgt=new KeyEventDialog;
-    m_pWgt=new connectDialog;
+    m_pWgt=new ExecThreadDialog;
+    //m_pWgt=new connectDialog;//13
     //m_pWgt=new MultiLangWidget;//14
     //m_pWgt=new LangSwitchWidget;
     m_pWgt->show();

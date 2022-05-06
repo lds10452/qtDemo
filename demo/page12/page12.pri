@@ -1,0 +1,4 @@
+include(ch1200_execDlg/ch1200_execDlg.pri)
+include(ch1201_threadDlg/ch1201_threadDlg.pri)
+include(ch1202_SemaphoreDlg/ch1202_SemaphoreDlg.pri)
+include(ch1203_WaitConditionDlg/ch1203_WaitConditionDlg.pri)
