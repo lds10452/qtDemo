@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     //m_pWgt=new mouseEventMainWindow;//11
     //m_pWgt=new eventFilterDialog;
     //m_pWgt=new KeyEventDialog;
-    m_pWgt=new ExecThreadDialog;
+    m_pWgt=new ExecThreadDialog;//12
     //m_pWgt=new connectDialog;//13
     //m_pWgt=new MultiLangWidget;//14
     //m_pWgt=new LangSwitchWidget;

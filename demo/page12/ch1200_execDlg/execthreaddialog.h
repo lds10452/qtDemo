@@ -11,6 +11,8 @@ private slots:
     void BaseThread();
     void SemaphoreThread();
     void WaitCondition();
+    void TimeServer();
+    void Time2Client();
 };
 
 #endif // EXECTHREADDIALOG_H
