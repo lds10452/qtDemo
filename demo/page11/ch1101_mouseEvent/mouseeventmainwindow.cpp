@@ -2,8 +2,11 @@
 #include <QLabel>
 #include <QStatusBar>
 #include <QMouseEvent>
+#include "paintwidget.h"
 mouseEventMainWindow::mouseEventMainWindow(QWidget *parent) : QMainWindow(parent)
 {
+    PaintWidget *w=new PaintWidget;
+    setCentralWidget(w);
     QLabel *label=new QLabel;
     label->setText("移动位置:");
     label->setFixedWidth(100);
