@@ -1,0 +1,4 @@
+include(ch1000_networkExec/ch1000_networkExec.pri)
+include(ch1001_networkInformation/ch1001_networkInformation.pri)
+include(ch1002_udpServer/ch1002_udpServer.pri)
+include(ch1003_udpClient/ch1003_udpClient.pri)
