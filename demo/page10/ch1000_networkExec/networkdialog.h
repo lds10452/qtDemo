@@ -11,6 +11,9 @@ private slots:
     void ShowNetworkInfo();
     void ShowUdpServer();
     void SHowUdpClient();
+    void ShowTcpServer();
+    void ShowTcpClient();
+    void ShowHttp();
 };
 
 #endif // NETWORKDIALOG_H
