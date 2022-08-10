@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/myStyle.qss</file>
+        <file>res/icon.png</file>
+        <file>res/back.png</file>
+        <file>res/myStyle2.qss</file>
+    </qresource>
+</RCC>

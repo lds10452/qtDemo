@@ -1,0 +1,8 @@
+QGroupBox{
+	color:red;
+	background-color:rgb(123,31,45);
+}
+
+QPushButton{
+	color:blue;
+}
