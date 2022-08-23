@@ -7,5 +7,6 @@
         <file>res/blue.png</file>
         <file>res/red.png</file>
         <file>res/green.png</file>
+        <file>res/list.xml</file>
     </qresource>
 </RCC>
