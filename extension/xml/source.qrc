@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/menu.xml</file>
+        <file>res/my.xml</file>
+        <file>res/expand.png</file>
+        <file>res/treeHide.png</file>
+        <file>res/blue.png</file>
+        <file>res/red.png</file>
+        <file>res/green.png</file>
+    </qresource>
+</RCC>
