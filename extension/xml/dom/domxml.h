@@ -18,6 +18,8 @@ public:
 
     void ReadXml();
     void PrintfInfo(QDomElement e);
+    void WriteXml();
+    void CreatNode(QDomDocument &doc,QDomElement &child,QStringList elemList,QStringList attrList=QStringList());
 private:
     Ui::DomXml *ui;
 };
