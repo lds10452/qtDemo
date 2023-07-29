@@ -72,38 +72,30 @@ void DomXml::WriteXml()
     QStringList elemList,attrList;
     QDomProcessingInstruction ins=doc.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
     doc.appendChild(ins);
-    elemList<<"menu"<<"";
-    CreatNode(doc,root,elemList);
-    elemList.clear();
+    root=doc.createElement("menu");
+    doc.appendChild(root);
     elemList<<"open"<<"";
     attrList<<"num"<<"1"<<"order"<<"4134";
-    CreatNode(doc,child1,elemList,attrList);
-    root.appendChild(child1);
+    CreatNode(doc,root,child1,elemList,attrList);
     elemList.clear();
     attrList.clear();
     elemList<<"tip"<<"open files";
-    CreatNode(doc,child2,elemList);
-    child1.appendChild(child2);
+    CreatNode(doc,child1,child2,elemList);
     elemList.clear();
     elemList<<"key"<<"ctrl+o";
-    CreatNode(doc,child2,elemList);
-    child1.appendChild(child2);
+    CreatNode(doc,child1,child2,elemList);
 
     elemList.clear();
     attrList.clear();
     elemList<<"save"<<"";
     attrList<<"num"<<"2"<<"order"<<"152";
-    CreatNode(doc,child1,elemList,attrList);
+    CreatNode(doc,root,child1,elemList,attrList);
     elemList.clear();
     elemList<<"tip"<<"save files";
-    CreatNode(doc,child2,elemList);
-    child1.appendChild(child2);
+    CreatNode(doc,child1,child2,elemList);
     elemList.clear();
     elemList<<"key"<<"ctrl+s";
-    CreatNode(doc,child2,elemList);
-    child1.appendChild(child2);
-    root.appendChild(child1);
-    doc.appendChild(root);
+    CreatNode(doc,child1,child2,elemList);
 //    QDomAttr num=doc.createAttribute("num");
 //    num.setValue("1");
 //    QDomText text=doc.createTextNode("open files");
@@ -127,7 +119,7 @@ void DomXml::WriteXml()
     file.close();
 }
 
-void DomXml::CreatNode(QDomDocument &doc,QDomElement &child, QStringList elemList, QStringList attrList)
+void DomXml::CreatNode(QDomDocument &doc,QDomElement &parent,QDomElement &child, QStringList elemList, QStringList attrList)
 {
     child=doc.createElement(elemList.at(0));
     if(!elemList.at(1).isEmpty())
@@ -141,4 +133,5 @@ void DomXml::CreatNode(QDomDocument &doc,QDomElement &child, QStringList elemLis
         attr.setValue(attrList.at(i+1));
         child.setAttributeNode(attr);
     }
+    parent.appendChild(child);
 }
