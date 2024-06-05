@@ -1,4 +1,4 @@
-﻿#include "ColorSelectWidget.h"
+﻿#include "colorselectwidget.h"
 #include <QDebug>
 #include <QApplication>
 

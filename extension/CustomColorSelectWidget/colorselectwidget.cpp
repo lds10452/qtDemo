@@ -7,7 +7,7 @@
 #define BaseColorMaxCol 8
 ColorNum ColorSelectWidget::colorNum[3][3]={
     {ColorNum{4,1,1},ColorNum{16,1,1},ColorNum{64,1,1}},
-    {ColorNum{4,4,1},ColorNum{8,8,1},ColorNum{8,8,1}},
+    {ColorNum{4,4,1},ColorNum{16,4,1},ColorNum{8,8,1}},
     {ColorNum{4,4,4},ColorNum{4,4,4},ColorNum{4,4,4}}
 };
 static QString textstyle="QPushButton {background-color: %1;"
@@ -21,12 +21,13 @@ ColorSelectWidget::ColorSelectWidget(SCREEN_COLOR color,SCREEN_GRAY gray,QColor 
 {
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
+    setWindowFlag(Qt::WindowContextHelpButtonHint, false);
     setFixedSize(540,460);
     m_ScreenColor=color;
     m_ScreenGray=gray;
     InitWidget();
     m_CurSelectColor=defaultColor;
-    UpdateColor(defaultColor);
+    UpdateColor(defaultColor,true);
 }
 
 ColorSelectWidget::~ColorSelectWidget()
@@ -34,7 +35,7 @@ ColorSelectWidget::~ColorSelectWidget()
     delete ui;
 }
 
-void ColorSelectWidget::UpdateColor(QColor color)
+void ColorSelectWidget::UpdateColor(QColor color,bool btnSelect)
 {
     m_TempSelectColor=color;
     ui->lineEditRed->setText(QString::number(color.red()));
@@ -43,6 +44,23 @@ void ColorSelectWidget::UpdateColor(QColor color)
 
     ui->lineEditColorHex->setText(color.name().toUpper());
     ui->labelColor->setStyleSheet(QString("QLabel{background-color:%1;}").arg(color.name()));
+
+    if(btnSelect)//default,btn
+    {
+        QPushButton *btn=dynamic_cast<QPushButton*>(sender());
+        if(btn!=NULL)
+        {
+            bool flag=btn->property("isBaseColor").toBool();
+            if(!flag)
+            {
+                QPoint pos=btn->property("colorPos").toPoint();
+                ui->colorPanelWidget->m_curPoint=pos;
+                ui->colorPanelWidget->update();
+                return;
+            }
+        }
+        emit ColorToPos(color);
+    }
 }
 
 void ColorSelectWidget::ColorClicked()
@@ -54,7 +72,7 @@ void ColorSelectWidget::ColorClicked()
     QPushButton* pbtclr = dynamic_cast<QPushButton*>(sender());
     QString ptname=pbtclr->objectName();
     QColor color(ptname);
-    UpdateColor(color);
+    UpdateColor(color,true);
     m_pLastSelectButton=pbtclr;
 }
 
@@ -93,7 +111,7 @@ void ColorSelectWidget::InitWidget()
     connect(ui->pushButtonCancel,&QPushButton::clicked,this,&ColorSelectWidget::PushButtonClickFinish);
     ui->colorPanelWidget->InitColorPanel(m_ScreenColor,m_ScreenGray,m_nHighBitsNum,m_nMaxColorVaule);
     connect(ui->colorPanelWidget,&ColorPanelWidget::ColorChange,this,&ColorSelectWidget::UpdateColor);
-
+    connect(this,&ColorSelectWidget::ColorToPos,ui->colorPanelWidget,&ColorPanelWidget::CalcCrossPos);
 //    ui->spinBoxRed->setSingleStep(64);
 //    ui->spinBoxRed->setFocusPolicy(Qt::NoFocus);
 }
@@ -124,6 +142,7 @@ void ColorSelectWidget::DrawBaseColor()
         for (int j=0;j<m_nGreenNum;j++) {
             for (int k=0;k<m_nRedNum;k++) {
                 QPushButton *pBtnColor = new QPushButton(ui->widgetBaseColor);
+                pBtnColor->setProperty("isBaseColor",true);
                 pBtnColor->setCheckable(true);
                 int index=k+j*m_nRedNum+i*m_nGreenNum*m_nRedNum;
                 int row=index/BaseColorMaxCol;
@@ -155,6 +174,8 @@ void ColorSelectWidget::DrawCustomColor()
     for (int i=0;i<2;i++) {
         for (int j=0;j<8;j++) {
             QPushButton *pBtnColor = new QPushButton(ui->widgetCustomColor);
+            pBtnColor->setProperty("isBaseColor",false);
+            pBtnColor->setProperty("colorPos",QPoint(-10,-10));//随意范围外的值
             pBtnColor->setCheckable(true);
             pBtnColor->setFixedSize(QSize(24, 24));
 
@@ -175,6 +196,8 @@ void ColorSelectWidget::on_ptnAddColor_clicked()
     m_nCustomColorCount++;
     btn->setStyleSheet(textstyle.arg(color));
     btn->setObjectName(color);
+    QPoint pos=ui->colorPanelWidget->m_curPoint;
+    btn->setProperty("colorPos",pos);
 }
 
 void ColorSelectWidget::PushButtonClickFinish()

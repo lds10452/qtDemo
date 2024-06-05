@@ -27,7 +27,7 @@ public:
     explicit ColorPanelWidget(QWidget *parent = nullptr);
 
 signals:
-    void ColorChange(QColor);
+    void ColorChange(QColor,bool btnSelect);
 protected:
 
     virtual void paintEvent(QPaintEvent *event)override;
@@ -35,6 +35,7 @@ protected:
     virtual void mouseMoveEvent(QMouseEvent *event) override;
 
 public:
+    QPoint m_curPoint;//点击的坐标
     void InitColorPanel(SCREEN_COLOR color,SCREEN_GRAY gray,int bits,int maxColorValue);
 private:
     SCREEN_GRAY m_enumScreenGray;
@@ -44,10 +45,11 @@ private:
     int m_nMaxColorVaule;//最大颜色值
     int m_nColorSpace;//相邻颜色差值
     int m_nColorSplice;//过渡次数
-    QPoint m_curPoint;//点击的坐标
     void DrawColorPanel(QPainter*painter);
     void CalcColor(QPoint point);
     void drawCursor(QPainter *painter);
+public slots:
+    void CalcCrossPos(QColor color);
 };
 
 #endif // COLORAREAWIDGET_H

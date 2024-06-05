@@ -145,13 +145,13 @@ void ColorPanelWidget::CalcColor(QPoint point)
     switch (m_nColorSplice) {
     case 1:
     {
-        if(m_enumScreenColor==SCREEN_COLOR_DOUBLE)
+        if(m_enumScreenColor==SCREEN_COLOR_DOUBLE)//横向一段：g:0->max,纵向一段：r:0->max
         {
             g=posX*m_nMaxColorVaule/MAX_COLOR_VALUE;
         }
         break;
     }
-    case 3:
+    case 3://横向三段：b：0->max,max,max->; g:0,0->max,max
     {
         int range=MAX_COLOR_VALUE/m_nColorSplice;
         if(posX<=range)
@@ -175,8 +175,47 @@ void ColorPanelWidget::CalcColor(QPoint point)
     r=r/m_nColorSpace*m_nColorSpace;
     g=g/m_nColorSpace*m_nColorSpace;
     b=b/m_nColorSpace*m_nColorSpace;
-    emit ColorChange(QColor(r,g,b));
+    emit ColorChange(QColor(r,g,b),false);
 
+    update();
+}
+
+void ColorPanelWidget::CalcCrossPos(QColor color)
+{
+    int r=color.red();
+    int g=color.green();
+    int b=color.blue();
+    int yPos=r*MAX_COLOR_VALUE/m_nMaxColorVaule;
+    int xPos=0;
+    switch (m_nColorSplice) {
+    case 1:
+    {
+        if(m_enumScreenColor==SCREEN_COLOR_DOUBLE)
+        {
+            xPos=g*MAX_COLOR_VALUE/m_nMaxColorVaule;
+        }
+        break;
+    }
+    case 3:
+    {
+        int range=MAX_COLOR_VALUE/m_nColorSplice;
+        if(0>=g)
+        {
+            xPos=b*range/m_nMaxColorVaule;
+        }
+        else if (g>=m_nMaxColorVaule) {
+            xPos=2*range+range-range*b/m_nMaxColorVaule;
+        }
+        else {
+            xPos=g*range/m_nMaxColorVaule+range;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+    m_curPoint.setX(xPos);
+    m_curPoint.setY(yPos);
     update();
 }
 

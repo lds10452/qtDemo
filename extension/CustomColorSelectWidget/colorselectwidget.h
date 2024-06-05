@@ -25,8 +25,9 @@ public:
     ~ColorSelectWidget();
 signals:
     void ColorSelectFinish(QColor color);
+    void ColorToPos(QColor);
 private slots:
-    void UpdateColor(QColor color);
+    void UpdateColor(QColor color,bool btnSelect);
     void ColorClicked();
     void on_ptnAddColor_clicked();
 
