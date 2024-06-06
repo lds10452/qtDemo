@@ -87,15 +87,18 @@ void ColorPanelWidget::InitColorPanel(SCREEN_COLOR color,SCREEN_GRAY gray,int bi
         break;
     case SCREEN_COLOR_THREE:
         m_vecColorBase.push_back(QColor(0,0,0));
-        m_vecColorBase.push_back(QColor(0,0,m_nMaxColorVaule/2));
+//        m_vecColorBase.push_back(QColor(0,0,m_nMaxColorVaule/2));
 
         m_vecColorBase.push_back(QColor(0,0,m_nMaxColorVaule));
-        m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule/2,m_nMaxColorVaule));
+//        m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule/2,m_nMaxColorVaule));
 
         m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule,m_nMaxColorVaule));
-        m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule,m_nMaxColorVaule/2));
+//        m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule,m_nMaxColorVaule/2));
 
         m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule,0));
+//        m_vecColorBase.push_back(QColor(0,m_nMaxColorVaule/2,0));
+
+        m_vecColorBase.push_back(QColor(0,0,0));
         break;
     default:
         m_vecColorBase.clear();
@@ -115,11 +118,11 @@ void ColorPanelWidget::DrawColorPanel(QPainter *painter)
         float offset=(float)i/num;
         float offset2=(float)(i+1)/num;
         QLinearGradient gradient1(w*offset, 0, w*offset2, 0);
-        gradient1.setColorAt(offset, m_vecColorBase[i]);
-        gradient1.setColorAt(offset2, m_vecColorBase[i+1]);
+        gradient1.setColorAt(0, m_vecColorBase[i]);
+        gradient1.setColorAt(1, m_vecColorBase[i+1]);
 
-//        painter.setBrush(gradient1);
-//        painter.drawRect(0, 0, w / 2, h);
+//        painter->setBrush(gradient1);
+//        painter->drawRect(w*offset, 0, w*offset2, h);
         painter->fillRect(w*offset, 0, w*offset2 , h,gradient1);
     }
     // 设置混合模式为叠加
