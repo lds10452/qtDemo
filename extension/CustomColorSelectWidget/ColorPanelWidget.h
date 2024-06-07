@@ -25,6 +25,7 @@ class ColorPanelWidget : public QWidget
     Q_OBJECT
 public:
     explicit ColorPanelWidget(QWidget *parent = nullptr);
+    ~ColorPanelWidget();
 
 signals:
     void ColorChange(QColor,bool btnSelect);
@@ -48,6 +49,9 @@ private:
     void DrawColorPanel(QPainter*painter);
     void CalcColor(QPoint point);
     void drawCursor(QPainter *painter);
+
+    QImage *image;
+    void DrawColorImage();
 public slots:
     void CalcCrossPos(QColor color);
 };
