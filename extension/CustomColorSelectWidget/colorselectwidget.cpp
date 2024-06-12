@@ -98,9 +98,10 @@ void ColorSelectWidget::InitWidget()
         break;
     }
 //    m_nColorSpace=256/pow(2,m_nHighBitsNum);
-    int value=0xff>>(8-m_nHighBitsNum);
-    m_nMaxColorVaule=value<<(8-m_nHighBitsNum);
-
+//    int value=0xff>>(8-m_nHighBitsNum);
+//    m_nMaxColorVaule=value<<(8-m_nHighBitsNum);
+    int value=0xff;//>>(8-m_nHighBitsNum);
+    m_nMaxColorVaule=value;//<<(8-m_nHighBitsNum);
     DrawBaseColor();
     DrawCustomColor();
 
@@ -151,6 +152,9 @@ void ColorSelectWidget::DrawBaseColor()
                 int r=(m_nRedNum-1)>0?m_nMaxColorVaule/(m_nRedNum-1)*k:0;
                 int g=(m_nGreenNum-1)>0?m_nMaxColorVaule/(m_nGreenNum-1)*j:0;
                 int b=(m_nBlueNum-1)>0?m_nMaxColorVaule/(m_nBlueNum-1)*i:0;
+                r=ColorPanelWidget::AddOneToLastBits(r,m_nHighBitsNum);
+                g=ColorPanelWidget::AddOneToLastBits(g,m_nHighBitsNum);
+                b=ColorPanelWidget::AddOneToLastBits(b,m_nHighBitsNum);
                 QColor c(r,g,b);
                 pBtnColor->setObjectName(c.name());
                 pBtnColor->setStyleSheet(textstyle.arg(c.name()));

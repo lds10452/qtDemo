@@ -224,13 +224,39 @@ void ColorPanelWidget::CalcColor(QPoint point)
 //    }
 //    r=posY*m_nMaxColorVaule/MAX_COLOR_VALUE;
     QColor color=image->pixelColor(point.x(),point.y());
-    int r=color.red(),g=color.green(),b=color.blue();
-    r=r/m_nColorSpace*m_nColorSpace;
-    g=g/m_nColorSpace*m_nColorSpace;
-    b=b/m_nColorSpace*m_nColorSpace;
-    emit ColorChange(QColor(r,g,b),false);
+//    int r=color.red(),g=color.green(),b=color.blue();
+//    r=r/m_nColorSpace*m_nColorSpace;
+//    g=g/m_nColorSpace*m_nColorSpace;
+//    b=b/m_nColorSpace*m_nColorSpace;
 
+    int r=AddOneToLastBits(ModColor(color.red()),m_nHighBitsNum);
+    int g=AddOneToLastBits(ModColor(color.green()),m_nHighBitsNum);
+    int b=AddOneToLastBits(ModColor(color.blue()),m_nHighBitsNum);
+    qDebug("%d,%d:%d,%d,%d",point.x(),point.y(),r,g,b);
+    emit ColorChange(QColor(r,g,b),false);
     update();
+}
+
+int ColorPanelWidget::ModColor(int color)//取高几位正确的值
+{
+    int c=color>>(8-m_nHighBitsNum);
+//    unsigned char highEightBitsColor=c&0xff;//取高几位用于判断是否全0
+    c=c<<(8-m_nHighBitsNum);//后补0
+    c=c/m_nColorSpace*m_nColorSpace;//取正确颜色值
+    return c;
+}
+
+int ColorPanelWidget::AddOneToLastBits(int color,int bits)//尾部补1
+{
+    unsigned char lowBits=0xff>>(8-bits);
+//    unsigned char highEightBitsMod=lowBits;
+//    qDebug("%x",lowBits);
+    lowBits=~(lowBits<<(8-bits));//补几位1
+//    qDebug("%x",lowBits);
+//    if(highEightBitsColor&highEightBitsMod)//高几位为0？
+    if(color)
+        color|=lowBits;
+    return color;
 }
 
 void ColorPanelWidget::CalcCrossPos(QColor color)

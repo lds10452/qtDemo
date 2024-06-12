@@ -38,6 +38,7 @@ protected:
 public:
     QPoint m_curPoint;//点击的坐标
     void InitColorPanel(SCREEN_COLOR color,SCREEN_GRAY gray,int bits,int maxColorValue);
+    static int AddOneToLastBits(int color,int bits);
 private:
     SCREEN_GRAY m_enumScreenGray;
     SCREEN_COLOR m_enumScreenColor;
@@ -52,6 +53,8 @@ private:
 
     QImage *image;
     void DrawColorImage();
+
+    int ModColor(int color);
 public slots:
     void CalcCrossPos(QColor color);
 };

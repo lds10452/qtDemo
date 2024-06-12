@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    ColorSelectWidget w(SCREEN_COLOR_SINGLE,SCREEN_GRAY_HIGH,QColor(240,0,0));
+    ColorSelectWidget w(SCREEN_COLOR_SINGLE,SCREEN_GRAY_LOW,QColor(240,0,0));
     w.exec();
     QColor color=w.m_CurSelectColor;
 //    QObject::connect(&w,&ColorSelectWidget::ColorSelectFinish,[](QColor color){
